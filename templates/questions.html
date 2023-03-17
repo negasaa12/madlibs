@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlib</title>
+</head>
+<body>
+   {% block h1 %} <h1>Madlib</h1> {% endblock %}
+    
+
+{% block content %}<form action="/story">
+    {% for word in story_list %}
+    {{word}}: <input type="text" name={{word}}> 
+    {% endfor %}
+    <!-- place: <input type="text" placeholder="" name="place">
+    noun: <input type="text" placeholder="" name="noun">
+    verb: <input type="text" placeholder="" name="verb">
+    adjective:<input type="text" placeholder="" name="adjective">
+    plural_noun:<input type="text" placeholder="" name="plural_noun"> -->
+    <button>Submit</button>
+</form> {% endblock %}
+
+
+</body>
+</html>
