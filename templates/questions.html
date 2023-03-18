@@ -13,7 +13,7 @@
 
 {% block content %}
 <h1>{{ story.title }}</h1>
-<form action="/story/{{ story_template }}" method="POST">
+<form action="/answer" method="GET">
   {% for prompt in story.prompts %}
     {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
   {% endfor %}

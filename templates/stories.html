@@ -15,11 +15,22 @@
   {% endblock %}
   
   {% block content %}
-    <p>{{first_story}} {{second_story}} {{third_story}}</p>
+    <p> hello</p>
+    
+    {% for key, value in present_args.items() %}
+    <p>key : {{key}}</p>
+    <p> value : {{value}} </p>
+    {% endfor %}
+
+
   {% endblock %}
     <!-- <p>place: <strong>{{place}}</strong></p>
     <p>noun: <strong>{{noun}}</strong></p>
     <p>verb: <strong>{{verb}}</strong></p>
     <p>plural_noun: <strong>{{plural_noun}}</strong></p> -->
+
+
+
+    <!-- <p>{{first_story}} {{second_story}} {{third_story}}</p> -->
 </body>
 </html>
