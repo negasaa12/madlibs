@@ -18,9 +18,9 @@ class Story:
         'I love to eat a good mango.'
     """
 
-    def __init__(self, words, text):
+    def __init__(self, words, text, title):
         """Create story with words and template text."""
-
+        self.title = title
         self.prompts = words
         self.template = text
 
@@ -33,6 +33,9 @@ class Story:
             text = text.replace("{" + key + "}", val)
 
         return text
+    
+    def __str__(self):
+        return self.title
 
 
 # Here's a story to get you started
@@ -41,5 +44,17 @@ class Story:
 story = Story(
     ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
-       large {adjective} {noun}. It loved to {verb} {plural_noun}."""
+       large {adjective} {noun}. It loved to {verb} {plural_noun}.""", "First Story"
 )
+
+story2= Story(
+    ['place','noun', 'verb', 'adjective'],
+    """{noun} was very {adjective} and they loved to {verb} in {place}""","Second Story"
+)
+
+story3 = Story(
+    ['place','noun',],
+    """{noun} loves to go to their favorite place, {place} """, "Third Story"
+)
+
+story_log = {'First Story': story, 'Second Story': story2, 'Third Story': story3}

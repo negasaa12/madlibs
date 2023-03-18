@@ -11,17 +11,26 @@
    {% block h1 %} <h1>Madlib</h1> {% endblock %}
     
 
-{% block content %}<form action="/story">
-    {% for word in story_list %}
-    {{word}}: <input type="text" name={{word}}> 
-    {% endfor %}
-    <!-- place: <input type="text" placeholder="" name="place">
-    noun: <input type="text" placeholder="" name="noun">
-    verb: <input type="text" placeholder="" name="verb">
-    adjective:<input type="text" placeholder="" name="adjective">
-    plural_noun:<input type="text" placeholder="" name="plural_noun"> -->
-    <button>Submit</button>
-</form> {% endblock %}
+{% block content %}
+<form action="/question">
+  {% for key, value in story_log.items() %}
+    {% if key == 'Story 1' %}
+      {% for prompt in value.prompts %}
+        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
+      {% endfor %}
+    {% elif key == 'Story 2' %}
+      {% for prompt in value.prompts %}
+        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
+      {% endfor %}
+    {% elif key == 'Story 3' %}
+      {% for prompt in value.prompts %}
+        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+ {% endblock %}
 
 
 </body>
