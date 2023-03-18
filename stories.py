@@ -58,3 +58,4 @@ story3 = Story(
 )
 
 story_log = {'First Story': story, 'Second Story': story2, 'Third Story': story3}
+

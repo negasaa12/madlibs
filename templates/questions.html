@@ -12,25 +12,24 @@
     
 
 {% block content %}
-<form action="/question">
-  {% for key, value in story_log.items() %}
-    {% if key == 'Story 1' %}
-      {% for prompt in value.prompts %}
-        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
-      {% endfor %}
-    {% elif key == 'Story 2' %}
-      {% for prompt in value.prompts %}
-        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
-      {% endfor %}
-    {% elif key == 'Story 3' %}
-      {% for prompt in value.prompts %}
-        {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
-      {% endfor %}
-    {% endif %}
+<h1>{{ story.title }}</h1>
+<form action="/story/{{ story_template }}" method="POST">
+  {% for prompt in story.prompts %}
+    {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
   {% endfor %}
   <button type="submit">Submit</button>
 </form>
- {% endblock %}
+
+<!-- <form action="/story/{{ story_template }}" method="POST">
+  
+  <h1>{{ story.title }}</h1>
+  <form action="/story/{{ story_template }}" method="POST">
+    {% for prompt in story.prompts %}
+      {{ prompt }}: <input type="text" name="{{ prompt }}"><br>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form> -->
+{% endblock %}
 
 
 </body>

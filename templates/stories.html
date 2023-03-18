@@ -10,9 +10,13 @@
     <title>stories</title>
 </head>
 <body>
-   {% block h1 %} <h1> YOUR STORY</h1>{% endblock %}
-
-   {% block content %} <p>{{first_story}}</p> {% endblock %}
+    {% block h1 %}
+    <h1> YOUR STORY</h1>
+  {% endblock %}
+  
+  {% block content %}
+    <p>{{first_story}} {{second_story}} {{third_story}}</p>
+  {% endblock %}
     <!-- <p>place: <strong>{{place}}</strong></p>
     <p>noun: <strong>{{noun}}</strong></p>
     <p>verb: <strong>{{verb}}</strong></p>

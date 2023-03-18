@@ -11,14 +11,12 @@ app.config['SECRET_KEY'] = "chickensarecool1"
 debug = DebugToolbarExtension(app)
 
 @app.route('/question')
-def questionaire():
-    
+def question():
+    story_template = request.args.get('story_template')
+    story = story_log[story_template]
+    return render_template('questions.html', story=story, story_template=story_template, story_log=story_log)
 
-    selected_story = request.args.get('story_template')
-    print(f"Selected story: {selected_story}")
-    story_obj = story_log[selected_story]
-    prompts = story_obj.prompts
-    return render_template('questions.html', prompts=prompts, story=selected_story)
+
 
     
 @app.route('/')
@@ -31,7 +29,6 @@ def pick_story():
 
 
 
-
 @app.route('/story')
 def your_story():
     # print(g.place)
@@ -39,9 +36,9 @@ def your_story():
     noun = request.args["noun"]
     verb = request.args["verb"]
     adjective = request.args["adjective"]
-    plural_noun = request.args["plural_noun"]
+    plural_noun = request.args["plural_noun"] s
 
     first_story = story.generate({'place': place, 'noun': noun, 'verb': verb, 'adjective': adjective, 'plural_noun' : plural_noun})
     second_story = story2.generate({'place': place,'noun': noun, 'verb': verb, 'adjective': adjective})
-   
-    return render_template('stories.html', place=place, noun=noun, verb=verb, adjective=adjective, plural_noun=plural_noun, first_story=first_story)
+    third_story = story3.generate({'place': place, 'noun': noun})
+    return render_template('stories.html', place=place, noun=noun, verb=verb, adjective=adjective, plural_noun=plural_noun, first_story=first_story, second_story=second_story, third_story=third_story)
