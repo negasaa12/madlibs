@@ -36,6 +36,13 @@ class Story:
     
     def __str__(self):
         return self.title
+    
+    def serialize(self):
+        return {
+            "title": self.title,
+            "words": self.prompts,
+            "text": self.template
+        }
 
 
 # Here's a story to get you started
